@@ -2,21 +2,7 @@ var express=require('express');
 
 var app=express();
 
-var middleware={
-
-    requireauthentication:function(req,res,next){
-        
-        console.log("Middleware");
-      
-        next();
-    }
-    ,
-    logger:function(req,res,next){
-        console.log(req.method);
-        next();
-    }
-    
-};
+var middleware=require('./middleware.js');
 
 app.use(middleware.requireauthentication);
 app.use(middleware.logger);
